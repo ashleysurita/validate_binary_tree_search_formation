@@ -2,7 +2,8 @@
 
 ### Problem: get tests to match expected values:
 
-```class TreeNode {
+```
+class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
         this.value = value
         this.left = leftChild
@@ -23,4 +24,5 @@ console.log(validateBST(null)) // true
 console.log(validateBST(tree1)) // true
 console.log(validateBST(tree2)) // false
 console.log(validateBST(tree3)) // true
-console.log(validateBST(new TreeNode())) // true```
+console.log(validateBST(new TreeNode())) // true
+```
