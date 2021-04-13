@@ -1,0 +1,34 @@
+class TreeNode {
+    constructor(value = 0, leftChild = null, rightChild = null) {
+        this.value = value
+        this.left = leftChild
+        this.right = rightChild
+    }
+}
+
+function validateBST(tree) {
+    if(!tree || (!tree.left && !tree.right)) return true
+    
+    let left = false
+    let right = false
+    
+    if(!tree.left) left = true  
+    else if (tree.left && tree.left.value < tree.value) left = tree.left && (tree.left.left || tree.left.right) ? validateBST(tree.left) : true
+    if(!tree.right) right = true
+    else if (tree.right && tree.right.value > tree.value) right = tree.right && (tree.right.left || tree.right.right) ? validateBST(tree.right) : true
+        
+    return !left && !right ? false : left && right
+}
+
+// Test Cases
+var tree1 = new TreeNode(2, new TreeNode(1), new TreeNode(3))
+var tree2 = new TreeNode(1, new TreeNode(2), new TreeNode(3))
+var tree3 = new TreeNode(
+    8, new TreeNode(3, new TreeNode(1), new TreeNode(6)),
+    new TreeNode(10, null, new TreeNode(14, new TreeNode(13))))
+
+console.log(validateBST(null)) // true
+console.log(validateBST(tree1)) // true
+console.log(validateBST(tree2)) // false
+console.log(validateBST(tree3)) // true
+console.log(validateBST(new TreeNode())) // true
