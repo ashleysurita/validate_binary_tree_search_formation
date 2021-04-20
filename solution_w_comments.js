@@ -1,3 +1,11 @@
+class TreeNode {
+    constructor(value = 0, leftChild = null, rightChild = null) {
+        this.value = value
+        this.left = leftChild
+        this.right = rightChild
+    }
+}
+
 function validateBST(tree, upper = Infinity, lower = Math.log(0)) {
      // if tree is null, then return true
     if(!tree) return true
